@@ -301,6 +301,13 @@ export const PEDAGOGY_PHASES = [
     phase: "PHASE 05",
     title: "PRESENT",
     description: "Technical sprint demos defending design decisions before panels."
+  },
+  {
+    num: "6",
+    phase: "PHASE 06",
+    title: "GROW",
+    description: "Professional interview readiness, career acceleration, and hiring rounds.",
+    accent: true
   }
 ];
 
@@ -340,6 +347,12 @@ export const FIIT_EDGE_STAGES = [
     step: "07",
     name: "Performance",
     detail: "KPI validation"
+  },
+  {
+    step: "08",
+    name: "Deploy",
+    detail: "Corporate entry",
+    deploy: true
   }
 ];
 

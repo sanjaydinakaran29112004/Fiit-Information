@@ -22,8 +22,8 @@ export default function FiitEdgeFramework() {
           </p>
         </div>
 
-        {/* 7 Horizontal Step Cards in a Row */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-10">
+        {/* 8 Horizontal Step Cards in a Row */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 sm:gap-3 mb-10">
           {FIIT_EDGE_STAGES.map((stage, idx) => {
             const isSelected = activeStage === idx;
 
@@ -31,21 +31,23 @@ export default function FiitEdgeFramework() {
               <div
                 key={idx}
                 onClick={() => setActiveStage(activeStage === idx ? null : idx)}
-                className={`rounded-xl p-3 sm:p-4 border text-center transition-all duration-300 cursor-pointer select-none ${
+                className={`rounded-xl p-3 sm:p-3.5 border text-center transition-all duration-300 cursor-pointer select-none ${
                   isSelected
                     ? 'bg-[#3b1f48] border-pink-400 shadow-xl -translate-y-1'
                     : stage.highlight
-                    ? 'bg-[#261a34] border-slate-700/60 hover:border-slate-400 hover:bg-[#302042] hover:-translate-y-1'
+                    ? 'bg-[#3f273d] border-slate-700/60 hover:border-slate-400 hover:-translate-y-1'
+                    : stage.deploy
+                    ? 'bg-[#14384d] border-slate-700/60 hover:border-slate-400 hover:-translate-y-1'
                     : 'bg-[#1b204e] border-slate-700/60 hover:border-slate-400 hover:bg-[#222961] hover:-translate-y-1'
                 }`}
               >
-                <span className="text-xs font-mono font-bold text-slate-400 block mb-1">
+                <span className="text-[11px] font-mono font-bold text-slate-400 block mb-1">
                   {stage.step}
                 </span>
-                <h4 className="text-sm font-extrabold text-white mb-1 tracking-tight">
+                <h4 className="text-xs sm:text-sm font-extrabold text-white mb-1 tracking-tight">
                   {stage.name}
                 </h4>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[10px] sm:text-[10.5px] text-slate-400 leading-tight">
                   {stage.detail}
                 </p>
               </div>
@@ -57,7 +59,7 @@ export default function FiitEdgeFramework() {
         <div className="bg-[#1b204e]/90 rounded-xl p-4 sm:p-5 border border-slate-700/80 flex items-start gap-3.5 text-xs text-slate-300 max-w-4xl mx-auto">
           <Info className="w-5 h-5 text-indigo-400 shrink-0 mt-0.5" />
           <p className="leading-relaxed">
-            <strong className="text-white font-semibold">Institutional Notice:</strong> Paid internship and deployment opportunities depend strictly on entrance selection, eligibility benchmarks, client cohort openings, and individual assessment performance.
+            <strong className="text-white font-semibold">Institutional Notice:</strong> Paid internship and deployment opportunities depend strictly on entrance selection, eligibility benchmarks, client cohort availability, and individual assessment performance.
           </p>
         </div>
 

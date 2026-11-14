@@ -15,20 +15,22 @@ export default function EngineeredPedagogy() {
             From Learning to Professional Excellence
           </h2>
           <p className="mt-2.5 text-sm text-slate-600 leading-relaxed">
-            Our five-phase learning framework transforms academic theoretical memory into proven technical capability.
+            Our six-phase learning framework transforms academic theoretical memory into proven technical capability.
           </p>
         </div>
 
-        {/* 5 Phase Cards in a Grid / Flex Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+        {/* 6 Phase Cards Grid (6 cols on desktop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 lg:gap-4">
           {PEDAGOGY_PHASES.map((p, idx) => (
             <div 
               key={idx}
-              className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow text-center flex flex-col items-center justify-between"
+              className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all text-center flex flex-col items-center justify-between group cursor-default"
             >
               <div>
-                {/* Number Circle */}
-                <div className="w-12 h-12 rounded-full bg-[#1a1f4b] text-white flex items-center justify-center font-black text-lg mb-4 shadow-sm">
+                {/* Number Circle - 6th is amber/orange */}
+                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full text-white flex items-center justify-center font-black text-base sm:text-lg mb-4 shadow-sm mx-auto group-hover:scale-105 transition-transform ${
+                  p.accent ? 'bg-[#f59e0b]' : 'bg-[#1a1f4b]'
+                }`}>
                   {p.num}
                 </div>
 
@@ -36,11 +38,11 @@ export default function EngineeredPedagogy() {
                   {p.phase}
                 </span>
 
-                <h3 className="text-base font-extrabold text-[#1a1f4b] mb-2 tracking-tight">
-                  {p.title}
+                <h3 className="text-sm sm:text-base font-extrabold text-[#1a1f4b] mb-2 tracking-tight group-hover:text-indigo-900 transition-colors">
+                  <span className="title-hover-underline">{p.title}</span>
                 </h3>
 
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-[11.5px] sm:text-xs text-slate-600 leading-relaxed">
                   {p.description}
                 </p>
               </div>
