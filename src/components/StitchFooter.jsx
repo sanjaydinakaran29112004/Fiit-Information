@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Share2, Play, Instagram, Linkedin, MapPin, Phone, Mail, Clock } from 'lucide-react';
 

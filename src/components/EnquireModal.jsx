@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { X, CheckCircle, Send, Phone, User, Mail, MapPin } from 'lucide-react';
 import { BRANCHES_DATA, PROGRAMS } from '../data/stitchData';

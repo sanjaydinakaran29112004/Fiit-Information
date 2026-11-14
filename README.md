@@ -1,9 +1,9 @@
-# FIIT FORMACION — Enterprise IT Training & Placement Portal
+# FIIT FORMACION — Enterprise IT Training & Placement Portal (Next.js)
 **Official 100% DITTO Web Application for Fiit Formacion Private Limited**  
 *Empowering Future IT Professionals — Tamil Nadu's Premier IT Training Network*  
 *Engineered by **EntryKode Technologies***
 
-[![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Next.js](https://img.shields.io/badge/Next.js-14.2-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Build Status](https://img.shields.io/badge/Build-Passing%20(0%20errors)-brightgreen?style=for-the-badge)](./)
@@ -12,11 +12,11 @@
 
 ## 🎯 FIIT FORMACION — Enterprise IT Training & Placement Portal
 
-This application faithfully reproduces every visual, textual, and layout element of the official Stitch prototype:
+This Next.js 14 App Router application faithfully reproduces every visual, textual, and layout element of the official Stitch prototype:
 
 1. **Top Navbar (`Header.jsx`):**
    - Brand Logo: Deep navy square with "F", "FIIT FORMACION", "EMPOWERING FUTURE IT PROFESSIONALS", "FIIT Formacion PVT. LTD."
-   - Navigation: Home (active underline), About Us, Programs, Methodology, FIIT EDGE, Placements, Branches, Contact Us.
+   - Navigation: Home (active underline), About Us, Programs (dropdown menu with Internship Programs & Professional Courses), Methodology, FIIT EDGE, Placements, Branches, Contact Us.
    - Admissions Helpline: `+91 98400 12345` with bold styling.
    - Action: Deep navy rounded `Enquire Now` button + user profile avatar.
 
@@ -53,19 +53,20 @@ This application faithfully reproduces every visual, textual, and layout element
      - `Code: CS-909` — Cybersecurity
    - Card buttons: `Enquire Now` (deep navy) & `Syllabus` (lilac).
 
-6. **Engineered Pedagogy (`EngineeredPedagogy.jsx`):**
-   - Heading: `From Learning to Professional Excellence`
-   - 5 Phase Cards: `PHASE 01 LEARN`, `PHASE 02 PRACTICE`, `PHASE 03 BUILD`, `PHASE 04 DOCUMENT`, `PHASE 05 PRESENT`.
-
-7. **Proprietary Incubation Framework (`FiitEdgeFramework.jsx`):**
-   - Deep navy container (`bg-[#12163b]`)
-   - Headline: `Don't Create Trainers. Create Capable Professionals.`
-   - 7 Step Cards: `01 Campaign`, `02 Assessment`, `03 Identify`, `04 Develop`, `05 Demonstrate`, `06 Paid Intern` (highlighted in purple-pink), `07 Performance`.
-   - `Institutional Notice` info banner.
-
-8. **Targeted Project Immersions (`InternshipTiers.jsx`):**
+6. **Targeted Project Immersions (`InternshipTiers.jsx`):**
    - Heading: `Learn by Doing. Grow by Building.`
    - 3 Sprint Cards: `7 Days Internship`, `15 Days Internship` (MOST POPULAR highlighted), `30 Days Internship`.
+   - All 3 cards feature deep navy `Internship Details` buttons matching the center card.
+
+7. **Engineered Pedagogy (`EngineeredPedagogy.jsx`):**
+   - Heading: `From Learning to Professional Excellence`
+   - 6 Phase Cards: `PHASE 01 LEARN`, `PHASE 02 PRACTICE`, `PHASE 03 BUILD`, `PHASE 04 DOCUMENT`, `PHASE 05 PRESENT`, `PHASE 06 GROW` (golden badge).
+
+8. **Proprietary Incubation Framework (`FiitEdgeFramework.jsx`):**
+   - Deep navy container (`bg-[#12163b]`)
+   - Headline: `Don't Create Trainers. Create Capable Professionals.`
+   - 8 Step Cards: `01 Campaign`, `02 Assessment`, `03 Identify`, `04 Develop`, `05 Demonstrate`, `06 Paid Intern` (highlighted in purple-pink), `07 Performance`, `08 Deploy` (corporate entry in deep teal).
+   - `Institutional Notice` info banner.
 
 9. **Career Transition Engine (`CareerTransitionEngine.jsx`):**
    - Heading: `Get Ready for the Industry.` (Placement Readiness Program).
@@ -108,10 +109,10 @@ This application faithfully reproduces every visual, textual, and layout element
 ```bash
 npm run dev
 ```
-Accessible at: **`http://localhost:5173`**
+Accessible at: **`http://localhost:3000`**
 
 ### Build Production Bundle
 ```bash
 npm run build
 ```
-Optimized assets placed in `dist/`.
+Optimized assets placed in `.next/`.

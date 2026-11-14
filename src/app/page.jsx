@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import InstitutionalStandard from './components/InstitutionalStandard';
-import WhatWeOffer from './components/WhatWeOffer';
-import ExplorePrograms from './components/ExplorePrograms';
-import EngineeredPedagogy from './components/EngineeredPedagogy';
-import FiitEdgeFramework from './components/FiitEdgeFramework';
-import InternshipTiers from './components/InternshipTiers';
-import CareerTransitionEngine from './components/CareerTransitionEngine';
-import WhyChooseFiit from './components/WhyChooseFiit';
-import PhysicalInfrastructure from './components/PhysicalInfrastructure';
-import TestimonialsSection from './components/TestimonialsSection';
-import FaqSection from './components/FaqSection';
-import TechCounselingBanner from './components/TechCounselingBanner';
-import StitchFooter from './components/StitchFooter';
-import EnquireModal from './components/EnquireModal';
-import SyllabusModal from './components/SyllabusModal';
+'use client';
 
-export default function App() {
+import React, { useState } from 'react';
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
+import InstitutionalStandard from '../components/InstitutionalStandard';
+import WhatWeOffer from '../components/WhatWeOffer';
+import ExplorePrograms from '../components/ExplorePrograms';
+import InternshipTiers from '../components/InternshipTiers';
+import EngineeredPedagogy from '../components/EngineeredPedagogy';
+import FiitEdgeFramework from '../components/FiitEdgeFramework';
+import CareerTransitionEngine from '../components/CareerTransitionEngine';
+import WhyChooseFiit from '../components/WhyChooseFiit';
+import PhysicalInfrastructure from '../components/PhysicalInfrastructure';
+import TestimonialsSection from '../components/TestimonialsSection';
+import FaqSection from '../components/FaqSection';
+import TechCounselingBanner from '../components/TechCounselingBanner';
+import StitchFooter from '../components/StitchFooter';
+import EnquireModal from '../components/EnquireModal';
+import SyllabusModal from '../components/SyllabusModal';
+
+export default function HomePage() {
   const [enquireModalOpen, setEnquireModalOpen] = useState(false);
   const [selectedProgramForEnquire, setSelectedProgramForEnquire] = useState('');
   const [selectedProgramForSyllabus, setSelectedProgramForSyllabus] = useState(null);

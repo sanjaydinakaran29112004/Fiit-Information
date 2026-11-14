@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Info } from 'lucide-react';
 import { FIIT_EDGE_STAGES } from '../data/stitchData';

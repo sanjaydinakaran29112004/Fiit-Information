@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Clock, ArrowRight, BookOpen } from 'lucide-react';
 import { PROGRAM_CATEGORIES, PROGRAMS } from '../data/stitchData';
