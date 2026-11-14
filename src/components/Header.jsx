@@ -21,7 +21,7 @@ export default function Header({ onOpenEnquire }) {
   // Track scroll position to dynamically highlight nav links
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'institutional', 'programs', 'methodology', 'fiit-edge', 'prp', 'branches', 'counseling'];
+      const sections = ['hero', 'institutional', 'programs', 'internships', 'methodology', 'fiit-edge', 'prp', 'branches', 'counseling'];
       const scrollPos = window.scrollY + 120;
 
       for (const sec of sections) {
@@ -87,7 +87,7 @@ export default function Header({ onOpenEnquire }) {
         {/* Center Nav Links with Animated Moving Underline Effect (Laptops & Desktops) */}
         <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6 text-[12px] xl:text-[13px] font-medium text-slate-700">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
+            const isActive = activeSection === link.id || (link.id === 'programs' && activeSection === 'internships');
 
             if (link.id === 'programs') {
               return (

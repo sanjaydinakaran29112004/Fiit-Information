@@ -60,16 +60,16 @@ export default function App() {
           onOpenSyllabus={handleOpenSyllabus}
         />
 
-        {/* 5. Engineered Pedagogy (5 Phases) */}
-        <EngineeredPedagogy />
-
-        {/* 6. Proprietary Incubation Framework - FIIT EDGE (7 Stages) */}
-        <FiitEdgeFramework />
-
-        {/* 7. Targeted Project Immersions - Internships (7, 15, 30 Days) */}
+        {/* 5. Targeted Project Immersions - Internships (Learn by Doing. Grow by Building.) */}
         <InternshipTiers 
           onOpenEnquire={handleOpenEnquire}
         />
+
+        {/* 6. Engineered Pedagogy (6 Phases) */}
+        <EngineeredPedagogy />
+
+        {/* 7. Proprietary Incubation Framework - FIIT EDGE (8 Stages) */}
+        <FiitEdgeFramework />
 
         {/* 8. Career Transition Engine - Placement Readiness Program (8 Cards) */}
         <CareerTransitionEngine />
