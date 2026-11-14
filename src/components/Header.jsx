@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Phone, Menu, X, ArrowRight, MapPin, ChevronDown } from 'lucide-react';
+import { Phone, Menu, X, ArrowRight, MapPin } from 'lucide-react';
 
 export default function Header({ onOpenEnquire }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -94,27 +94,23 @@ export default function Header({ onOpenEnquire }) {
                 <div
                   key={link.id}
                   ref={dropdownRef}
-                  className="relative py-2 group/dropdown"
+                  className="relative py-1 group/dropdown"
                   onMouseEnter={() => setProgramsDropdownOpen(true)}
                   onMouseLeave={() => setProgramsDropdownOpen(false)}
                 >
-                  <button
-                    type="button"
+                  <a
+                    href="#programs"
                     onClick={(e) => {
-                      e.preventDefault();
                       setProgramsDropdownOpen(!programsDropdownOpen);
                     }}
-                    className={`nav-link-animated transition-colors flex items-center gap-1 cursor-pointer bg-transparent border-0 font-medium ${
+                    className={`nav-link-animated py-1 transition-colors cursor-pointer block font-medium ${
                       isActive || programsDropdownOpen
                         ? 'text-[#1a1f4b] font-bold active' 
                         : 'hover:text-[#1a1f4b]'
                     }`}
                   >
-                    <span>{link.label}</span>
-                    <ChevronDown className={`w-3 h-3 text-slate-400 group-hover/dropdown:text-[#ea580c] transition-transform duration-200 ${
-                      programsDropdownOpen ? 'rotate-180 text-[#ea580c]' : ''
-                    }`} />
-                  </button>
+                    {link.label}
+                  </a>
 
                   {/* Dropdown Menu with Seamless Invisible Hover Bridge */}
                   {programsDropdownOpen && (
