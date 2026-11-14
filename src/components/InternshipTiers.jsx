@@ -112,11 +112,7 @@ export default function InternshipTiers({ onOpenEnquire }) {
                     e.stopPropagation();
                     onOpenEnquire(tier.title);
                   }}
-                  className={`btn-interactive w-full py-3 px-4 rounded-xl text-xs font-bold tracking-wide transition-all ${
-                    tier.popular
-                      ? 'bg-[#1a1f4b] hover:bg-[#12163b] text-white shadow-md active:scale-95'
-                      : 'bg-[#ede9fe] hover:bg-[#e0e7ff] text-[#1a1f4b]'
-                  }`}
+                  className="btn-interactive w-full py-3 px-4 rounded-xl text-xs font-bold tracking-wide transition-all bg-[#1a1f4b] hover:bg-[#12163b] text-white shadow-md active:scale-95"
                 >
                   Internship Details
                 </button>

@@ -36,8 +36,6 @@ export default function FiitEdgeFramework() {
                     ? 'bg-[#3b1f48] border-pink-400 shadow-xl -translate-y-1'
                     : stage.highlight
                     ? 'bg-[#3f273d] border-slate-700/60 hover:border-slate-400 hover:-translate-y-1'
-                    : stage.deploy
-                    ? 'bg-[#14384d] border-slate-700/60 hover:border-slate-400 hover:-translate-y-1'
                     : 'bg-[#1b204e] border-slate-700/60 hover:border-slate-400 hover:bg-[#222961] hover:-translate-y-1'
                 }`}
               >
