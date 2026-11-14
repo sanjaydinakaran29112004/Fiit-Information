@@ -1,0 +1,80 @@
+export const BATCHES = [
+  {
+    id: "batch-mern-01",
+    courseId: "fs-mern",
+    courseName: "Master in Full Stack MERN Development",
+    startDate: "Next Monday",
+    timing: "09:30 AM - 11:30 AM (IST)",
+    scheduleType: "Regular (Mon - Fri)",
+    mode: "Classroom (Avadi Branch)",
+    instructor: "Sanjay D. (Full Stack Architect)",
+    totalSeats: 20,
+    filledSeats: 16,
+    status: "Filling Fast"
+  },
+  {
+    id: "batch-mern-02",
+    courseId: "fs-mern",
+    courseName: "Master in Full Stack MERN Development",
+    startDate: "Upcoming Saturday",
+    timing: "02:00 PM - 06:00 PM (IST)",
+    scheduleType: "Weekend Batch (Sat & Sun)",
+    mode: "Live Interactive Online",
+    instructor: "Arun Kumar (MERN Lead)",
+    totalSeats: 25,
+    filledSeats: 22,
+    status: "Only 3 Seats Left!"
+  },
+  {
+    id: "batch-java-01",
+    courseId: "fs-java",
+    courseName: "Enterprise Java Full Stack & Microservices",
+    startDate: "Coming Wednesday",
+    timing: "11:30 AM - 01:30 PM (IST)",
+    scheduleType: "Regular (Mon - Fri)",
+    mode: "Classroom (Avadi Lab)",
+    instructor: "R. Balaji (Ex-Cognizant Architect)",
+    totalSeats: 18,
+    filledSeats: 12,
+    status: "Open"
+  },
+  {
+    id: "batch-ai-01",
+    courseId: "ai-data-science",
+    courseName: "Python, Data Science & Machine Learning",
+    startDate: "Next Monday",
+    timing: "07:00 PM - 09:00 PM (IST)",
+    scheduleType: "Evening Batch (Mon - Fri)",
+    mode: "Live Interactive Online",
+    instructor: "Dr. K. Swaminathan (Data Scientist)",
+    totalSeats: 30,
+    filledSeats: 24,
+    status: "Filling Fast"
+  },
+  {
+    id: "batch-ccna-01",
+    courseId: "ccna-networking",
+    courseName: "Cisco CCNA (200-301) & Enterprise Networking",
+    startDate: "Next Tuesday",
+    timing: "10:00 AM - 01:00 PM (IST)",
+    scheduleType: "Regular (Mon - Thu)",
+    mode: "Hardware Lab (Avadi Center)",
+    instructor: "M. Saravanan (CCIE Certified)",
+    totalSeats: 15,
+    filledSeats: 14,
+    status: "Last 1 Seat Left!"
+  },
+  {
+    id: "batch-tally-01",
+    courseId: "tally-gst",
+    courseName: "Tally Prime with GST & Corporate Accounting",
+    startDate: "Next Monday",
+    timing: "04:00 PM - 06:00 PM (IST)",
+    scheduleType: "Regular (Mon - Fri)",
+    mode: "Classroom Lab (Avadi Center)",
+    instructor: "Mrs. Meenakshi (Senior Tax Consultant)",
+    totalSeats: 20,
+    filledSeats: 15,
+    status: "Open"
+  }
+];
