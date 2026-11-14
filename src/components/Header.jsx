@@ -1,9 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Phone, Menu, X, ArrowRight, MapPin } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Phone, Menu, X, ArrowRight, MapPin, ChevronDown } from 'lucide-react';
 
 export default function Header({ onOpenEnquire }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setProgramsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   // Track scroll position to dynamically highlight nav links
   useEffect(() => {
@@ -75,6 +88,50 @@ export default function Header({ onOpenEnquire }) {
         <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6 text-[12px] xl:text-[13px] font-medium text-slate-700">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
+
+            if (link.id === 'programs') {
+              return (
+                <div
+                  key={link.id}
+                  ref={dropdownRef}
+                  className="relative py-1"
+                  onMouseEnter={() => setProgramsDropdownOpen(true)}
+                  onMouseLeave={() => setProgramsDropdownOpen(false)}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setProgramsDropdownOpen(!programsDropdownOpen)}
+                    className={`nav-link-animated transition-colors flex items-center gap-1 cursor-pointer bg-transparent border-0 font-medium ${
+                      isActive || programsDropdownOpen
+                        ? 'text-[#1a1f4b] font-bold active' 
+                        : 'hover:text-[#1a1f4b]'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                  </button>
+
+                  {/* Dropdown Menu matching Stitch Image */}
+                  {programsDropdownOpen && (
+                    <div className="absolute top-full left-0 mt-2.5 w-52 bg-white rounded-2xl shadow-[0_12px_32px_-4px_rgba(26,31,75,0.14)] border border-slate-100 py-2 px-1.5 z-50 animate-fadeIn">
+                      <a
+                        href="#internships"
+                        onClick={() => setProgramsDropdownOpen(false)}
+                        className="block px-4 py-2.5 text-xs sm:text-[13px] font-medium text-slate-700 hover:text-[#1a1f4b] hover:bg-slate-50 rounded-xl transition-colors"
+                      >
+                        Internship Programs
+                      </a>
+                      <a
+                        href="#programs"
+                        onClick={() => setProgramsDropdownOpen(false)}
+                        className="block px-4 py-2.5 text-xs sm:text-[13px] font-medium text-slate-700 hover:text-[#1a1f4b] hover:bg-slate-50 rounded-xl transition-colors"
+                      >
+                        Professional Courses
+                      </a>
+                    </div>
+                  )}
+                </div>
+              );
+            }
 
             return (
               <a 
@@ -169,6 +226,25 @@ export default function Header({ onOpenEnquire }) {
                 {link.label}
               </a>
             ))}
+          </div>
+
+          {/* Quick Sub-links for Programs on Mobile */}
+          <div className="flex flex-wrap items-center gap-2 text-xs py-1">
+            <span className="text-[11px] font-bold text-slate-400">Programs:</span>
+            <a
+              href="#internships"
+              onClick={() => setMobileOpen(false)}
+              className="px-2.5 py-1 rounded-lg bg-amber-50 text-[#ea580c] font-bold hover:bg-amber-100 transition-colors"
+            >
+              Internship Programs
+            </a>
+            <a
+              href="#programs"
+              onClick={() => setMobileOpen(false)}
+              className="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-900 font-bold hover:bg-indigo-100 transition-colors"
+            >
+              Professional Courses
+            </a>
           </div>
 
           <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
