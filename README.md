@@ -10,7 +10,7 @@
 
 ---
 
-## 🎯 100% DITTO Architecture & Structure
+## 🎯 FIIT FORMACION — Enterprise IT Training & Placement Portal
 
 This application faithfully reproduces every visual, textual, and layout element of the official Stitch prototype:
 
