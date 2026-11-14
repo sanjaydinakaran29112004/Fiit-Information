@@ -94,13 +94,16 @@ export default function Header({ onOpenEnquire }) {
                 <div
                   key={link.id}
                   ref={dropdownRef}
-                  className="relative py-1"
+                  className="relative py-2 group/dropdown"
                   onMouseEnter={() => setProgramsDropdownOpen(true)}
                   onMouseLeave={() => setProgramsDropdownOpen(false)}
                 >
                   <button
                     type="button"
-                    onClick={() => setProgramsDropdownOpen(!programsDropdownOpen)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setProgramsDropdownOpen(!programsDropdownOpen);
+                    }}
                     className={`nav-link-animated transition-colors flex items-center gap-1 cursor-pointer bg-transparent border-0 font-medium ${
                       isActive || programsDropdownOpen
                         ? 'text-[#1a1f4b] font-bold active' 
@@ -108,25 +111,32 @@ export default function Header({ onOpenEnquire }) {
                     }`}
                   >
                     <span>{link.label}</span>
+                    <ChevronDown className={`w-3 h-3 text-slate-400 group-hover/dropdown:text-[#ea580c] transition-transform duration-200 ${
+                      programsDropdownOpen ? 'rotate-180 text-[#ea580c]' : ''
+                    }`} />
                   </button>
 
-                  {/* Dropdown Menu matching Stitch Image */}
+                  {/* Dropdown Menu with Seamless Invisible Hover Bridge */}
                   {programsDropdownOpen && (
-                    <div className="absolute top-full left-0 mt-2.5 w-52 bg-white rounded-2xl shadow-[0_12px_32px_-4px_rgba(26,31,75,0.14)] border border-slate-100 py-2 px-1.5 z-50 animate-fadeIn">
-                      <a
-                        href="#internships"
-                        onClick={() => setProgramsDropdownOpen(false)}
-                        className="block px-4 py-2.5 text-xs sm:text-[13px] font-medium text-slate-700 hover:text-[#1a1f4b] hover:bg-slate-50 rounded-xl transition-colors"
-                      >
-                        Internship Programs
-                      </a>
-                      <a
-                        href="#programs"
-                        onClick={() => setProgramsDropdownOpen(false)}
-                        className="block px-4 py-2.5 text-xs sm:text-[13px] font-medium text-slate-700 hover:text-[#1a1f4b] hover:bg-slate-50 rounded-xl transition-colors"
-                      >
-                        Professional Courses
-                      </a>
+                    <div className="absolute top-full left-0 pt-1.5 z-50 animate-fadeIn">
+                      <div className="w-56 bg-white rounded-2xl shadow-[0_16px_36px_-6px_rgba(26,31,75,0.18)] border border-slate-100 py-2 px-1.5">
+                        <a
+                          href="#internships"
+                          onClick={() => setProgramsDropdownOpen(false)}
+                          className="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-semibold text-slate-700 hover:text-[#1a1f4b] hover:bg-slate-50/90 rounded-xl transition-all cursor-pointer"
+                        >
+                          <span className="title-hover-underline">Internship Programs</span>
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover/item:text-[#ea580c] group-hover/item:translate-x-1 transition-all" />
+                        </a>
+                        <a
+                          href="#programs"
+                          onClick={() => setProgramsDropdownOpen(false)}
+                          className="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-semibold text-slate-700 hover:text-[#1a1f4b] hover:bg-slate-50/90 rounded-xl transition-all cursor-pointer"
+                        >
+                          <span className="title-hover-underline">Professional Courses</span>
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover/item:text-[#ea580c] group-hover/item:translate-x-1 transition-all" />
+                        </a>
+                      </div>
                     </div>
                   )}
                 </div>
