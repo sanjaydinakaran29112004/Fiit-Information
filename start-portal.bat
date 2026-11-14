@@ -5,7 +5,8 @@ echo   Futura Innovative Information Technology (Chennai)
 echo   Engineered by EntryKode Technologies
 echo ===================================================
 echo.
-echo Starting Next.js Local Server on http://localhost:3000 ...
+echo Starting Next.js Server on http://localhost:3000 ...
 echo.
-npm run dev
+cd HomePage
+npm run start
 pause

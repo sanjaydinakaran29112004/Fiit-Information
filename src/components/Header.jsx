@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Phone, Menu, X, ArrowRight, MapPin } from 'lucide-react';
+import { Phone, Menu, X, ArrowRight } from 'lucide-react';
 
 export default function Header({ onOpenEnquire }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection] = useState('home');
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -20,46 +20,38 @@ export default function Header({ onOpenEnquire }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Track scroll position to dynamically highlight nav links
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['hero', 'institutional', 'programs', 'internships', 'methodology', 'fiit-edge', 'prp', 'branches', 'counseling'];
-      const scrollPos = window.scrollY + 120;
-
-      for (const sec of sections) {
-        const el = document.getElementById(sec);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sec);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navLinks = [
-    { label: "Home", href: "#hero", id: "hero" },
-    { label: "About Us", href: "#institutional", id: "institutional" },
-    { label: "Programs", href: "#programs", id: "programs" },
-    { label: "Methodology", href: "#methodology", id: "methodology" },
-    { label: "FIIT EDGE", href: "#fiit-edge", id: "fiit-edge" },
-    { label: "Placements", href: "#prp", id: "prp" },
-    { label: "Branches", href: "#branches", id: "branches" },
-    { label: "Contact Us", href: "#counseling", id: "counseling" },
+    { label: "Home", id: "home" },
+    { label: "About Us", id: "about" },
+    { label: "Programs", id: "programs" },
+    { label: "Methodology", id: "methodology" },
+    { label: "FIIT EDGE", id: "fiit-edge" },
+    { label: "Placements", id: "placements" },
+    { label: "Branches", id: "branches" },
+    { label: "Contact Us", id: "contact" },
   ];
+
+  const handleNavClick = (e, linkId) => {
+    e.preventDefault();
+    if (linkId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // Future pages like About Us, Contact Us will be routed when created
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)] transition-all">
       <div className="max-w-[1340px] mx-auto px-3 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
         
         {/* Brand Logo - Fully responsive on all screens */}
-        <a href="#" className="flex items-center gap-2 sm:gap-3 group shrink min-w-0">
+        <a 
+          href="#" 
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="flex items-center gap-2 sm:gap-3 group shrink min-w-0 cursor-pointer"
+        >
           <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#1a1f4b] flex items-center justify-center text-white font-extrabold text-base sm:text-xl shadow-sm tracking-tight group-hover:scale-105 transition-transform shrink-0">
               F
@@ -86,10 +78,10 @@ export default function Header({ onOpenEnquire }) {
           </div>
         </a>
 
-        {/* Center Nav Links with Animated Moving Underline Effect (Laptops & Desktops) */}
+        {/* Center Nav Links with Animated Moving Underline Effect */}
         <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6 text-[12px] xl:text-[13px] font-medium text-slate-700">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.id || (link.id === 'programs' && activeSection === 'internships');
+            const isHome = link.id === 'home';
 
             if (link.id === 'programs') {
               return (
@@ -101,13 +93,14 @@ export default function Header({ onOpenEnquire }) {
                   onMouseLeave={() => setProgramsDropdownOpen(false)}
                 >
                   <a
-                    href="#programs"
+                    href="#"
                     onClick={(e) => {
+                      e.preventDefault();
                       setProgramsDropdownOpen(!programsDropdownOpen);
                     }}
                     className={`nav-link-animated py-1 transition-colors cursor-pointer block font-medium ${
-                      isActive || programsDropdownOpen
-                        ? 'text-[#1a1f4b] font-bold active' 
+                      programsDropdownOpen
+                        ? 'text-[#1a1f4b]' 
                         : 'hover:text-[#1a1f4b]'
                     }`}
                   >
@@ -119,16 +112,22 @@ export default function Header({ onOpenEnquire }) {
                     <div className="absolute top-full left-0 pt-1.5 z-50 animate-fadeIn">
                       <div className="w-56 bg-white rounded-2xl shadow-[0_16px_36px_-6px_rgba(26,31,75,0.18)] border border-slate-100 py-2 px-1.5">
                         <a
-                          href="#internships"
-                          onClick={() => setProgramsDropdownOpen(false)}
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setProgramsDropdownOpen(false);
+                          }}
                           className="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-semibold text-slate-700 hover:text-[#1a1f4b] hover:bg-slate-50/90 rounded-xl transition-all cursor-pointer"
                         >
                           <span className="title-hover-underline">Internship Programs</span>
                           <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover/item:text-[#ea580c] group-hover/item:translate-x-1 transition-all" />
                         </a>
                         <a
-                          href="#programs"
-                          onClick={() => setProgramsDropdownOpen(false)}
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setProgramsDropdownOpen(false);
+                          }}
                           className="group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-semibold text-slate-700 hover:text-[#1a1f4b] hover:bg-slate-50/90 rounded-xl transition-all cursor-pointer"
                         >
                           <span className="title-hover-underline">Professional Courses</span>
@@ -144,9 +143,10 @@ export default function Header({ onOpenEnquire }) {
             return (
               <a 
                 key={link.id}
-                href={link.href} 
-                className={`nav-link-animated py-1 transition-colors ${
-                  isActive 
+                href="#"
+                onClick={(e) => handleNavClick(e, link.id)}
+                className={`nav-link-animated py-1 transition-colors cursor-pointer ${
+                  isHome 
                     ? 'text-[#1a1f4b] font-bold active' 
                     : 'hover:text-[#1a1f4b]'
                 }`}
@@ -220,36 +220,45 @@ export default function Header({ onOpenEnquire }) {
       {mobileOpen && (
         <div className="lg:hidden bg-white border-b border-slate-200 px-4 sm:px-6 py-5 space-y-3.5 text-sm font-medium text-slate-700 shadow-xl max-h-[80vh] overflow-y-auto animate-fadeIn">
           <div className="grid grid-cols-2 gap-2 pb-3 border-b border-slate-100 text-xs">
-            {navLinks.map((link) => (
-              <a 
-                key={link.id}
-                href={link.href} 
-                onClick={() => setMobileOpen(false)} 
-                className={`py-2 px-3 rounded-lg transition-colors ${
-                  activeSection === link.id
-                    ? 'bg-[#1a1f4b] text-white font-bold'
-                    : 'bg-slate-50 text-slate-800 hover:bg-slate-100'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isHome = link.id === 'home';
+              return (
+                <a 
+                  key={link.id}
+                  href="#" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileOpen(false);
+                    if (isHome) {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }} 
+                  className={`py-2 px-3 rounded-lg transition-colors cursor-pointer ${
+                    isHome
+                      ? 'bg-[#1a1f4b] text-white font-bold'
+                      : 'bg-slate-50 text-slate-800 hover:bg-slate-100'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
           {/* Quick Sub-links for Programs on Mobile */}
           <div className="flex flex-wrap items-center gap-2 text-xs py-1">
             <span className="text-[11px] font-bold text-slate-400">Programs:</span>
             <a
-              href="#internships"
-              onClick={() => setMobileOpen(false)}
-              className="px-2.5 py-1 rounded-lg bg-amber-50 text-[#ea580c] font-bold hover:bg-amber-100 transition-colors"
+              href="#"
+              onClick={(e) => { e.preventDefault(); setMobileOpen(false); }}
+              className="px-2.5 py-1 rounded-lg bg-amber-50 text-[#ea580c] font-bold hover:bg-amber-100 transition-colors cursor-pointer"
             >
               Internship Programs
             </a>
             <a
-              href="#programs"
-              onClick={() => setMobileOpen(false)}
-              className="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-900 font-bold hover:bg-indigo-100 transition-colors"
+              href="#"
+              onClick={(e) => { e.preventDefault(); setMobileOpen(false); }}
+              className="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-900 font-bold hover:bg-indigo-100 transition-colors cursor-pointer"
             >
               Professional Courses
             </a>
