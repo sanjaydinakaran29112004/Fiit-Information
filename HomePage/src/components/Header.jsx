@@ -38,7 +38,7 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group shrink-0 cursor-pointer select-none">
+        <Link href="/" prefetch={true} className="flex items-center gap-3 group shrink-0 cursor-pointer select-none">
           <div className="flex items-center gap-2.5">
             <div className="w-10 h-10 rounded-xl bg-[#1a1f4b] flex items-center justify-center text-white font-black text-xl shadow-xs group-hover:scale-105 transition-transform shrink-0">
               F
@@ -93,6 +93,7 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
                       <div className="w-64 bg-white rounded-2xl shadow-[0_16px_36px_-6px_rgba(26,31,75,0.18)] border border-slate-100 py-2 px-1.5">
                         <Link
                           href="/programs/internships"
+                          prefetch={true}
                           onClick={() => setProgramsDropdownOpen(false)}
                           className={`group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-semibold rounded-xl transition-all cursor-pointer ${
                             activePage === 'internships'
@@ -105,6 +106,7 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
                         </Link>
                         <Link
                           href="/programs/professional"
+                          prefetch={true}
                           onClick={() => setProgramsDropdownOpen(false)}
                           className={`group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-semibold rounded-xl transition-all cursor-pointer ${
                             activePage === 'professional'
@@ -126,6 +128,7 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
               <Link 
                 key={link.id}
                 href={link.href}
+                prefetch={true}
                 className={`nav-link-animated cursor-pointer leading-none ${
                   isActive ? 'active' : ''
                 }`}
@@ -205,6 +208,7 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
                 <Link 
                   key={link.id}
                   href={link.href} 
+                  prefetch={true}
                   onClick={() => setMobileOpen(false)} 
                   className={`py-2 px-3 rounded-lg transition-colors cursor-pointer ${
                     isActive
@@ -223,6 +227,7 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
             <span className="text-[11px] font-bold text-slate-400">Programs:</span>
             <Link
               href="/programs/internships"
+              prefetch={true}
               onClick={() => setMobileOpen(false)}
               className="px-2.5 py-1 rounded-lg bg-amber-50 text-[#ea580c] font-bold hover:bg-amber-100 transition-colors cursor-pointer"
             >
@@ -230,6 +235,7 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
             </Link>
             <Link
               href="/programs/professional"
+              prefetch={true}
               onClick={() => setMobileOpen(false)}
               className="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-900 font-bold hover:bg-indigo-100 transition-colors cursor-pointer"
             >
