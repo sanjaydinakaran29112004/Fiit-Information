@@ -1,4 +1,5 @@
 import './globals.css';
+import NavigationProgressBar from '../components/NavigationProgressBar';
 
 export const metadata = {
   title: 'FIIT FORMACION | IT Training, Skill Development & Placement Institute | Tamil Nadu',
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-white text-[#1a1f4b] antialiased selection:bg-[#1a1f4b] selection:text-white overflow-x-hidden max-w-full w-full relative">
+        <NavigationProgressBar />
         {children}
       </body>
     </html>

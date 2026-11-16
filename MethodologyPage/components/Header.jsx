@@ -2,12 +2,40 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Phone, Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function Header({ activePage = 'home', onOpenEnquire }) {
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+
+  // Proactively warm up router cache for all site routes immediately when header renders
+  useEffect(() => {
+    const routes = [
+      '/',
+      '/about',
+      '/programs/internships',
+      '/programs/professional',
+      '/methodology',
+      '/fiit-edge',
+      '/placements',
+      '/branches',
+      '/contact'
+    ];
+    routes.forEach(href => {
+      try {
+        router.prefetch(href);
+      } catch (e) {}
+    });
+  }, [router]);
+
+  const prefetchRoute = (href) => {
+    try {
+      if (href) router.prefetch(href);
+    } catch (e) {}
+  };
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -38,7 +66,13 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         
         {/* Brand Logo */}
-        <Link href="/" prefetch={true} className="flex items-center gap-3 group shrink-0 cursor-pointer select-none">
+        <Link 
+          href="/" 
+          prefetch={true} 
+          onMouseEnter={() => prefetchRoute('/')}
+          onPointerDown={() => prefetchRoute('/')}
+          className="flex items-center gap-3 group shrink-0 cursor-pointer select-none"
+        >
           <div className="flex items-center gap-2.5">
             <div className="w-10 h-10 rounded-xl bg-[#1a1f4b] flex items-center justify-center text-white font-black text-xl shadow-xs group-hover:scale-105 transition-transform shrink-0">
               F
@@ -74,7 +108,11 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
                   key={link.id}
                   ref={dropdownRef}
                   className="relative flex items-center group/dropdown"
-                  onMouseEnter={() => setProgramsDropdownOpen(true)}
+                  onMouseEnter={() => {
+                    setProgramsDropdownOpen(true);
+                    prefetchRoute('/programs/internships');
+                    prefetchRoute('/programs/professional');
+                  }}
                   onMouseLeave={() => setProgramsDropdownOpen(false)}
                 >
                   <button
@@ -94,6 +132,8 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
                         <Link
                           href="/programs/internships"
                           prefetch={true}
+                          onMouseEnter={() => prefetchRoute('/programs/internships')}
+                          onPointerDown={() => prefetchRoute('/programs/internships')}
                           onClick={() => setProgramsDropdownOpen(false)}
                           className={`group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-semibold rounded-xl transition-all cursor-pointer ${
                             activePage === 'internships'
@@ -107,6 +147,8 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
                         <Link
                           href="/programs/professional"
                           prefetch={true}
+                          onMouseEnter={() => prefetchRoute('/programs/professional')}
+                          onPointerDown={() => prefetchRoute('/programs/professional')}
                           onClick={() => setProgramsDropdownOpen(false)}
                           className={`group/item flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] font-semibold rounded-xl transition-all cursor-pointer ${
                             activePage === 'professional'
@@ -129,6 +171,10 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
                 key={link.id}
                 href={link.href}
                 prefetch={true}
+                onMouseEnter={() => prefetchRoute(link.href)}
+                onPointerDown={() => prefetchRoute(link.href)}
+                onTouchStart={() => prefetchRoute(link.href)}
+                onFocus={() => prefetchRoute(link.href)}
                 className={`nav-link-animated cursor-pointer leading-none ${
                   isActive ? 'active' : ''
                 }`}
@@ -209,6 +255,8 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
                   key={link.id}
                   href={link.href} 
                   prefetch={true}
+                  onMouseEnter={() => prefetchRoute(link.href)}
+                  onTouchStart={() => prefetchRoute(link.href)}
                   onClick={() => setMobileOpen(false)} 
                   className={`py-2 px-3 rounded-lg transition-colors cursor-pointer ${
                     isActive

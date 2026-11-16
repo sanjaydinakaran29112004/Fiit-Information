@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "npm --prefix HomePage run dev",
+    "dev:turbo": "npm --prefix HomePage run dev:turbo",
     "build": "npm --prefix HomePage run build",
     "start": "npm --prefix HomePage run start"
   }
