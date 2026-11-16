@@ -1,27 +1,29 @@
 {
-  "name": "fiit-formacion",
+  "name": "fiit-formacion-about",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev --webpack -p 3000",
-    "build": "next build --webpack",
-    "start": "next start -p 3000"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
+    "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.18.2",
-    "lucide-react": "^0.475.0",
-    "next": "^16.4.6",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "tailwind-merge": "^2.6.1"
+    "lucide-react": "^0.460.0",
+    "next": "^14.2.25",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^20.17.6",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.1",
-    "tailwindcss": "^3.4.17"
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15"
   }
 }
