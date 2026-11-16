@@ -1,16 +1,17 @@
 import React from 'react';
+import Link from 'next/link';
 import { Compass, Terminal, TrendingUp, CheckCircle, ArrowRight } from 'lucide-react';
 import { WHAT_WE_OFFER } from '../data/stitchData';
 
 export default function WhatWeOffer({ onSelectAction }) {
   const iconList = [
-    <div className="w-12 h-12 rounded-full bg-[#1a1f4b] flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+    <div key="0" className="w-12 h-12 rounded-full bg-[#1a1f4b] flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
       <Compass className="w-5 h-5" />
     </div>,
-    <div className="w-12 h-12 rounded-full bg-[#ea580c] flex items-center justify-center text-white group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+    <div key="1" className="w-12 h-12 rounded-full bg-[#ea580c] flex items-center justify-center text-white group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
       <Terminal className="w-5 h-5" />
     </div>,
-    <div className="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+    <div key="2" className="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
       <TrendingUp className="w-5 h-5" />
     </div>
   ];
@@ -68,13 +69,13 @@ export default function WhatWeOffer({ onSelectAction }) {
               </div>
 
               {/* Action Button */}
-              <a
-                href={track.action === 'courses' ? '#programs' : track.action === 'internships' ? '#internships' : '#prp'}
+              <Link
+                href={track.action === 'courses' ? '/programs/professional' : track.action === 'internships' ? '/programs/internships' : '/placements'}
                 className="w-full py-3 px-4 rounded-xl bg-[#ede9fe] hover:bg-[#e0e7ff] text-[#1a1f4b] text-xs font-bold tracking-wide transition-all flex items-center justify-center gap-2 group/btn"
               >
                 <span>{track.cta.replace(' →', '')}</span>
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform" />
-              </a>
+              </Link>
             </div>
           ))}
         </div>

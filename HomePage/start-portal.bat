@@ -7,5 +7,5 @@ echo ===================================================
 echo.
 echo Starting Next.js Server on http://localhost:3000 ...
 echo.
-npm run start
+npm run dev
 pause

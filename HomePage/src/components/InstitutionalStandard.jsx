@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Terminal, BookOpen, Cpu, User, ArrowRight } from 'lucide-react';
 import { INSTITUTIONAL_CARDS } from '../data/stitchData';
 
@@ -35,13 +36,13 @@ export default function InstitutionalStandard() {
             </p>
           </div>
 
-          <a 
-            href="#why-choose" 
+          <Link 
+            href="/about" 
             className="link-hover-move text-xs font-bold text-[#1a1f4b] hover:text-[#ea580c] self-start lg:self-end pb-1 group"
           >
             <span>About FIIT Formacion</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </div>
 
         {/* 4 Cards Grid with Smooth Lift & Glow */}

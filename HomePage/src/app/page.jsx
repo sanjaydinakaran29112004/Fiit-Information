@@ -38,6 +38,7 @@ export default function HomePage() {
       
       {/* Top Navigation Bar */}
       <Header 
+        activePage="home"
         onOpenEnquire={handleOpenEnquire} 
       />
 

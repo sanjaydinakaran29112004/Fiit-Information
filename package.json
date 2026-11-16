@@ -1,0 +1,10 @@
+{
+  "name": "fiit-formation-portal",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm --prefix HomePage run dev",
+    "build": "npm --prefix HomePage run build",
+    "start": "npm --prefix HomePage run start"
+  }
+}
