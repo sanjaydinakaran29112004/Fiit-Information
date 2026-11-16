@@ -1,25 +1,24 @@
 'use client';
 
-import React, { useEffect, useState, Suspense } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
-function ProgressBarInner() {
+export default function NavigationProgressBar() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  // When pathname or search params change, route navigation completed
+  // When pathname changes, route navigation completed
   useEffect(() => {
     if (loading) {
       setProgress(100);
       const timer = setTimeout(() => {
         setLoading(false);
         setProgress(0);
-      }, 250);
+      }, 200);
       return () => clearTimeout(timer);
     }
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   // Global click interceptor for internal links to trigger instant visual feedback
   useEffect(() => {
@@ -77,13 +76,5 @@ function ProgressBarInner() {
         style={{ width: `${progress}%` }}
       />
     </div>
-  );
-}
-
-export default function NavigationProgressBar() {
-  return (
-    <Suspense fallback={null}>
-      <ProgressBarInner />
-    </Suspense>
   );
 }

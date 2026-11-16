@@ -11,26 +11,7 @@ export default function Header({ activePage = 'home', onOpenEnquire }) {
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Proactively warm up router cache for all site routes immediately when header renders
-  useEffect(() => {
-    const routes = [
-      '/',
-      '/about',
-      '/programs/internships',
-      '/programs/professional',
-      '/methodology',
-      '/fiit-edge',
-      '/placements',
-      '/branches',
-      '/contact'
-    ];
-    routes.forEach(href => {
-      try {
-        router.prefetch(href);
-      } catch (e) {}
-    });
-  }, [router]);
-
+  // Prefetch a route gently only when the user interacts with a link
   const prefetchRoute = (href) => {
     try {
       if (href) router.prefetch(href);
